@@ -13,7 +13,7 @@ The `pyPrinto4Ontario` project is a Python-based tool designed to list files wit
 
 1. **Clone the Repository:**
    ```sh
-   git clone https://github.com/yourusername/pyPrinto4Ontario.git
+   git clone https://github.com/AuditorNeumann/PyPrinto4Ontario.git
    cd pyPrinto4Ontario
    ```
 
