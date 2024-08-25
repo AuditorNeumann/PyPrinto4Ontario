@@ -1,6 +1,3 @@
-# pyPrinto4Ontario.py
-# Description: List all files in a directory and save the list to a text file.
-
 import os
 import sys
 import datetime
@@ -82,7 +79,8 @@ def list_files_in_directory(directory_path, output_file, script_name, limit_file
         file.seek(0)
         file.writelines(lines)
 
-    print(f"\n\nFile list saved to {output_file}")
+    print(f"\n\nMain directory path {directory_path}")
+    print(f"File list saved to {output_file}")
     print(f"Total files reviewed: {total_files}")
     print(f"Files matching criteria: {matched_files}")
 
@@ -115,11 +113,18 @@ if __name__ == "__main__":
     limit_file_types = limit_file_types_input.lower() in ['yes', 'y', '']
     allowed_extensions = ['.txt', '.doc', '.pdf', '.xls', '.xlsx', '.ppt', '.one']
 
+    if not limit_file_types:
+        user_extensions = input("Please enter a comma-separated list of file extensions you want to include (e.g., .jpg, .png, .zip): ")
+        if user_extensions.strip():
+            allowed_extensions = [ext.strip().lower() for ext in user_extensions.split(",")]
+        else:
+            allowed_extensions = []  # If no extensions provided, include all files
+
     # Inform the user about the file type limitation
     if limit_file_types:
         print(f"\nNote: The report will be limited to the following file types: {', '.join(allowed_extensions)}.\n")
     else:
-        print("\nNote: The report will include all file types.\n")
+        print(f"\nNote: The report will include the following file types: {', '.join(allowed_extensions) if allowed_extensions else 'all types'}.\n")
 
     # Warning message about the file counting process
     print("Note: The program will now determine the total number of files to process and provide updates on its progress as it goes.\n"

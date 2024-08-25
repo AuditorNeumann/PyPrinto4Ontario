@@ -1,4 +1,3 @@
-# __init__.py
 import os
 import time
 import random
@@ -6,9 +5,16 @@ from positive_affirmations import positive_affirmations
 
 def main():
     """
-    The main function that welcomes the user and calls the pyPrinto4Ontario.py script.
+    The main function that welcomes the user, explains the program, and calls the pyPrinto4Ontario.py script.
     """
+    print_title()
     print("Welcome to pyPrinto4Ontario!")
+    print("\nThis program allows you to list all files within a specified directory and save the results to a text file.")
+    print("You can also limit the results to specific file types, and the program will provide progress updates as it scans the files.")
+    print("At the end, you can choose to run the program again or exit with some positive affirmations!\n")
+    print("Remember you can press CTRL+C to close this program at anytime!\n\n")
+    print("Now let's begin!\n")
+
     
     # Get the directory of the current script
     script_dir = os.path.dirname(__file__)
@@ -22,6 +28,19 @@ def main():
     # Execute the pyPrinto4Ontario.py script
     os.system(f"python \"{script_path}\"")
     try_again()
+
+def print_title():
+    """
+    Prints a stylized title for the program.
+    """
+    title = """
+    ######################################
+    #                                    #
+    #        pyPrinto4Ontario            #
+    #                                    #
+    ######################################
+    """
+    print(title)
 
 def try_again():
     """
